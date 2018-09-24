@@ -3,21 +3,20 @@ package com.abel.myhakimwebapp.Bootstrap;
 import com.abel.myhakimwebapp.model.Author;
 import com.abel.myhakimwebapp.model.Book;
 import com.abel.myhakimwebapp.model.Publisher;
-import com.abel.myhakimwebapp.repoistory.BookRepoitory;
+import com.abel.myhakimwebapp.repoistory.BookRepository;
 import com.abel.myhakimwebapp.repoistory.PublisherRepository;
-import com.abel.myhakimwebapp.repoistory.authorRepository;
+import com.abel.myhakimwebapp.repoistory.AuthorRepository;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
-   private authorRepository athrep;
-   private BookRepoitory bookrep;
+   private AuthorRepository athrep;
+   private BookRepository bookrep;
    private PublisherRepository pubrep;
 
-    public DevBootstrap(authorRepository athrep, BookRepoitory bookrep, PublisherRepository pubrep) {
+    public DevBootstrap(AuthorRepository athrep, BookRepository bookrep, PublisherRepository pubrep) {
         this.athrep = athrep;
         this.bookrep = bookrep;
         this.pubrep = pubrep;
@@ -34,7 +33,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         pub.setAddress("6040 14th");
         pubrep.save(pub);
 
-        
+
 
         //hakim
        Author auth=new Author("hakim","muzemil") ;
@@ -43,6 +42,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
        book.getLisauthors().add(auth);
        athrep.save(auth);
        bookrep.save(book);
+
         //Abel
         Author auth1=new Author("abel","Abdu") ;
         Book book1=new Book("Ethiopian History","12346",pub);
