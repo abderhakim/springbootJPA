@@ -1,7 +1,6 @@
 package com.abel.myhakimwebapp.contoller;
 
-import com.abel.myhakimwebapp.repoistory.BookRepoitory;
-import org.springframework.stereotype.Component;
+import com.abel.myhakimwebapp.repoistory.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BookController {
 
-    BookRepoitory bookrep;
+    BookRepository bookrep;
 
-    public BookController(BookRepoitory bookrep) {
+    public BookController(BookRepository bookrep) {
         this.bookrep = bookrep;
     }
 @RequestMapping("/books")
